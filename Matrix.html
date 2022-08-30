@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matrix na unha JavaScript</title>
+    <meta
+      name="description"
+      content="Matrix  na unha JavaScript"
+    />
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+
+  <body>
+    <canvas id="matrix"></canvas>
+  </body>
+
+  <script>
+
+    const c = document.getElementById("matrix");
+
+
+    const ctx = c.getContext("2d");
+
+
+    c.height = window.innerHeight;
+    c.width = window.innerWidth;
+
+ 
+    const letters = [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "L",
+      "K",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "X",
+      "Z",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      ".",
+      "=",
+      "*",
+      "+",
+      "-",
+      "<",
+      ">",
+      "¦",
+      "｜",
+      "ﾘ",
+    ];
+
+    const fontSize = 13;
+
+    const columns = c.width / fontSize;
+
+    let drops = [];
+
+ 
+    for (let x = 0; x < columns; x++) drops[x] = 1;
+
+    function draw() {
+
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, c.width, c.height);
+
+
+      ctx.fillStyle = "#0F0";
+      ctx.font = `${fontSize}px arial`;
+
+
+      for (let i = 0; i < drops.length; i++) {
+
+        const text = letters[Math.floor(Math.random() * letters.length)];
+
+         if(text=="A" || text=="1" || text=="B")   
+		    {		 
+				 ctx.fillStyle = "#FFFFFF";
+				 ctx.font = `11px arial`;
+		    }
+		else
+		{
+			ctx.fillStyle = "#0F0"; 
+			ctx.font = `13px arial`;
+		}
+				 
+
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+
+        if (drops[i] * fontSize > c.height && Math.random() > 0.975)
+          drops[i] = 0;
+
+        drops[i]++;
+      }
+
+      window.requestAnimationFrame(draw);
+	             sleep(2); //for the first time loop is excute and sleep for 2 seconds        
+
+
+    }
+
+    draw()
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-58087941-1', 'auto');
+    ga('send', 'pageview');
+    ga('send', 'event', 'labs', 'matrix');
+  </script>
+</body>
+</html>
+Footer

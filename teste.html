@@ -1,0 +1,221 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Conexões</title>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<style>
+
+.highcharts-figure,
+.highcharts-data-table table {
+  min-width: 320px;
+  max-width: 800px;
+  margin: 1em auto;
+}
+
+.highcharts-data-table table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ebebeb;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.highcharts-data-table th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+  padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+
+</style>
+
+</head>
+<body>
+<figure class="highcharts-figure">
+  <div id="container"></div>
+
+</figure>
+<script>
+
+Highcharts.chart('container', {
+  chart: {
+    type: 'packedbubble',
+    height: '100%'
+  },
+  title: {
+    text: 'Verificador de Conexões'
+  },
+  tooltip: {
+    useHTML: true,
+    pointFormat: '<b>{point.name}:</b> <div> <a href="https://www.w3schools.com">Visit W3Schools</a></div> '
+  },
+  plotOptions: {
+    packedbubble: {
+      minSize: '30%',
+      maxSize: '120%',
+      zMin: 0,
+      zMax: 1000,
+      layoutAlgorithm: {
+        splitSeries: false,
+        gravitationalConstant: 0.02
+      },
+      dataLabels: {
+        enabled: true,
+        format: '{point.name}',
+        filter: {
+          property: 'y',
+          operator: '>',
+          value: 250
+        },
+        style: {
+          color: 'black',
+          textOutline: 'none',
+          fontWeight: 'normal'
+        }
+      }
+    }
+  },
+  series: [{
+    name: 'Conexões OK',
+    data: [{
+      name: "Senegal",
+      value: 8.2
+    },
+    {
+      name: "Cameroon",
+      value: 9.2
+    },
+    {
+      name: "Zimbabwe",
+      value: 13.1
+    },
+    {
+      name: "Ghana",
+      value: 14.1
+    },
+    {
+      name: "Kenya",
+      value: 14.1
+    },
+    {
+      name: "Sudan",
+      value: 17.3
+    },
+    {
+      name: "Tunisia",
+      value: 24.3
+    },
+    {
+      name: "Angola",
+      value: 25
+    },
+    {
+      name: "Libya",
+      value: 50.6
+    },
+    {
+      name: "Ivory Coast",
+      value: 7.3
+    },
+    {
+      name: "Morocco",
+      value: 60.7
+    },
+    {
+      name: "Ethiopia",
+      value: 8.9
+    },
+    {
+      name: "United Republic of Tanzania",
+      value: 9.1
+    },
+    {
+      name: "Nigeria",
+      value: 93.9
+    },
+    {
+      name: "Itapetininga",
+      value: 501
+    }, {
+      name: "Egypt",
+      value: 225.1
+    }, {
+      name: "Algeria",
+      value: 141.5
+    }]
+  }, {
+    name: 'Sem Conexão',
+    data: [{
+      name: "Brasil"
+    },
+    {
+      name: "Uruguay",
+      value: 8.1
+    },
+    {
+      name: "Bolivia",
+      value: 17.8
+    },
+    {
+      name: "Trinidad and Tobago",
+      value: 34
+    },
+    {
+      name: "Ecuador",
+      value: 43
+    },
+    {
+      name: "Chile",
+      value: 78.6
+    },
+    {
+      name: "Peru",
+      value: 52
+    },
+    {
+      name: "Colombia",
+      value: 74.1
+    },
+    {
+      name: "Tatui",
+      value: 501
+    }, {
+      name: "Argentina",
+      value: 199
+    },
+    {
+      name: "Venezuela",
+      value: 195.2
+    }]
+
+  }]
+});
+</script>
+
+</body>
+</html>
